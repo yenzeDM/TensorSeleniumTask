@@ -23,7 +23,7 @@ class SbisRuDownloadPage(BasePage):
 
     def select_vlsi_plagin(self):
         vlsi_plagin = WebDriverWait(self.driver, 5).until(ec.presence_of_element_located(
-            SbisRuDownloadPageLocators.SELECT_VLSI_PLAGIN))  # self.driver.find_element(*SbisRuDownloadPageLocators.SELECT_VLSI_PLAGIN)
+            SbisRuDownloadPageLocators.SELECT_VLSI_PLAGIN))
         self.driver.execute_script('arguments[0].click()', vlsi_plagin)
 
     def select_windows_os(self):
