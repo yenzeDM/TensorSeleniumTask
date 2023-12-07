@@ -3,6 +3,7 @@ from .locators import SbisRuPageLocators
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as ec
 
+
 class SbisRuPage(BasePage):
         
     def go_to_contact_page(self):

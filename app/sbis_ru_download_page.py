@@ -18,14 +18,17 @@ def round_float(float_number, amount):
         result = str(int(after_dot[:amount][-1]) + 1)
         return float(before_dot + after_dot[:amount - 1] + result)
 
+
 class SbisRuDownloadPage(BasePage):
 
     def select_vlsi_plagin(self):
-        vlsi_plagin = WebDriverWait(self.driver, 5).until(ec.presence_of_element_located(SbisRuDownloadPageLocators.SELECT_VLSI_PLAGIN))               #self.driver.find_element(*SbisRuDownloadPageLocators.SELECT_VLSI_PLAGIN)
+        vlsi_plagin = WebDriverWait(self.driver, 5).until(ec.presence_of_element_located(
+            SbisRuDownloadPageLocators.SELECT_VLSI_PLAGIN))  # self.driver.find_element(*SbisRuDownloadPageLocators.SELECT_VLSI_PLAGIN)
         self.driver.execute_script('arguments[0].click()', vlsi_plagin)
 
     def select_windows_os(self):
-        windows_os = self.driver.find_element(*SbisRuDownloadPageLocators.SELECT_WINDOWS_OS)
+        windows_os = self.driver.find_element(
+            *SbisRuDownloadPageLocators.SELECT_WINDOWS_OS)
         self.driver.execute_script('arguments[0].click()', windows_os)
 
     def download_web_installer(self):
@@ -38,17 +41,17 @@ class SbisRuDownloadPage(BasePage):
             pytest.UsageError('The file did not download')
 
     def check_file_size(self):
-        current_file_size = os.path.getsize('download\\third_script\\sbisplugin-setup-web.exe')
+        current_file_size = os.path.getsize(
+            'download\\third_script\\sbisplugin-setup-web.exe')
 
-        file_size_on_the_page = self.driver.find_element(*SbisRuDownloadPageLocators.CHECK_FILE_SIZE).text
+        file_size_on_the_page = self.driver.find_element(
+            *SbisRuDownloadPageLocators.CHECK_FILE_SIZE).text
         pattern = r'[-+]?(?:\d+(?:\.\d*)?|\.\d+)(?:[eE][-+]?\d+)?'
-        file_size_on_the_page = re.search(pattern, file_size_on_the_page).group(0)
+        file_size_on_the_page = re.search(
+            pattern, file_size_on_the_page).group(0)
 
-        current_file_size = round_float(float((current_file_size / 1024) / 1024), 2)
-        file_size_on_the_page = round(float(file_size_on_the_page), 2)
+        current_file_size = round_float(
+            float((current_file_size / 1024) / 1024), 2)
+        file_size_on_the_page = round_float(float(file_size_on_the_page), 2)
 
         assert current_file_size == file_size_on_the_page, 'The sizes on the downloaded file and on the web page are different'
-
-        
-
-        

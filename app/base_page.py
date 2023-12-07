@@ -1,5 +1,5 @@
 from selenium.common.exceptions import NoSuchElementException
-    
+
 
 class BasePage:
 
