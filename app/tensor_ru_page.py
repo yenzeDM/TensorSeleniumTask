@@ -4,8 +4,6 @@ from .locators import TensorRuPageLocators
 class TensorRuPage(BasePage):
 
     def is_block_power_is_in_people(self):
-        # new_window = self.driver.window_handles[1]
-        # self.driver.switch_to.window(new_window)
         self.is_element_present(*TensorRuPageLocators.IS_BLOCK_POWER_IS_IN_PEOPLE)
         title = self.driver.find_element(*TensorRuPageLocators.TITLE).text
         assert title == 'Сила в людях', 'You have a wrong title should be "Сила в людях"'
