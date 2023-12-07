@@ -19,7 +19,7 @@ class BasePage:
             print(ex)
             return False
         return True
-    
+
     def is_elements_present(self, method, css_celector):
         try:
             self.driver.find_elements(method, css_celector)
@@ -27,7 +27,7 @@ class BasePage:
             print(ex)
             return False
         return True
-    
+
     def check_url(self, url):
         current_url = self.driver.current_url
         print(current_url)

@@ -53,4 +53,3 @@ class TestSecondScript:
         page = ContactPage(driver, url)
         page.open_website()
         page.check_window_name('Камчатский край')
-        

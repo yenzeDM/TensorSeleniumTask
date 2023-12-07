@@ -10,10 +10,11 @@ from selenium.webdriver.chrome import service
 from webdriver_manager.opera import OperaDriverManager
 import pytest
 
-    
+
 def pytest_addoption(parser):
     parser.addoption('--browser_name', action='store', default='chrome',
                      help="Choose browser: --browser_name=Your browser")
+
 
 @pytest.fixture(scope='function')
 def driver(request):
