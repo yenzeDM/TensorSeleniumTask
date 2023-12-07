@@ -36,7 +36,7 @@ def driver(request):
         opera_servise.start()
         browser = webdriver.Remote(opera_servise.service_url, options=options)
     else:
-        raise pytest.UsageError('You are choosing an unabailable browser')
+        raise pytest.UsageError('You are choosing an unavailable browser')
     yield browser
     print("\nquit browser..")
     sleep(3)
